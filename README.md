@@ -28,7 +28,7 @@ Get OpenAI API key [here](https://openai.com/api/).
 1. Clone repo
 
 ```bash
-git clone https://github.com/mckaywrigley/clarity-ai.git
+git clone https://github.com/solidrust/srt-clarity-search.git
 ```
 
 2. Install dependencies
