@@ -101,7 +101,7 @@ export const Search: FC<SearchProps> = ({ onSearch, onAnswerUpdate, onDone }) =>
   };
 
   const handleSave = () => {
-    if (apiKey.length !== 51) {
+    if (apiKey.length < 20) {
       alert("Please enter a valid API key.");
       return;
     }
@@ -144,7 +144,7 @@ export const Search: FC<SearchProps> = ({ onSearch, onAnswerUpdate, onDone }) =>
             <div className="ml-1 text-center text-4xl">Clarity</div>
           </div>
 
-          {apiKey.length === 51 ? (
+          {apiKey.length > 20 ? (
             <div className="relative w-full">
               <IconSearch className="text=[#D4D4D8] absolute top-3 w-10 left-1 h-6 rounded-full opacity-50 sm:left-3 sm:top-4 sm:h-8" />
 
@@ -166,7 +166,7 @@ export const Search: FC<SearchProps> = ({ onSearch, onAnswerUpdate, onDone }) =>
               </button>
             </div>
           ) : (
-            <div className="text-center text-[#D4D4D8]">Please enter your OpenAI API key.</div>
+            <div className="text-center text-[#D4D4D8]">Please enter your OpenAI API key. key: {apiKey}</div>
           )}
 
           <button
@@ -185,7 +185,7 @@ export const Search: FC<SearchProps> = ({ onSearch, onAnswerUpdate, onDone }) =>
                 onChange={(e) => {
                   setApiKey(e.target.value);
 
-                  if (e.target.value.length !== 51) {
+                  if (e.target.value.length < 20) {
                     setShowSettings(true);
                   }
                 }}
